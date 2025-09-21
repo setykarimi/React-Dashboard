@@ -1,9 +1,10 @@
 import { Box, Button, Container, Grid, Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
-import {  useState, type ReactNode } from "react";
+import { useState } from "react";
+import { Outlet } from "react-router";
 
-export default function Layout({children}: {children:ReactNode}) {
-  const [fullMenu, setFullMenu] = useState<boolean>(true)
+export default function Layout() {
+  const [fullMenu, setFullMenu] = useState<boolean>(true);
 
   return (
     <Theme accentColor="jade" grayColor="slate" radius="large" scaling="95%">
@@ -28,12 +29,12 @@ export default function Layout({children}: {children:ReactNode}) {
 
           <Box
             style={{
-              gridColumn: "2 / -1", 
-              background: "black",
+              gridColumn: "2 / -1",
+              background: "",
               transition: "all 0.5s ease",
             }}
           >
-            {children}
+            <Outlet />
           </Box>
         </Grid>
       </Container>
