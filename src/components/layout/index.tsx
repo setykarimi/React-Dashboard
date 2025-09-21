@@ -1,8 +1,8 @@
-import { Box, Button, Container, Grid, Theme } from "@radix-ui/themes";
+import { Box, Button, Container, Flex, Grid, Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import { useState } from "react";
 import { Outlet } from "react-router";
-
+import { sidebar } from "./../../../public/statics/index";
 export default function Layout() {
   const [fullMenu, setFullMenu] = useState<boolean>(true);
 
@@ -23,8 +23,17 @@ export default function Layout() {
             transition: "grid-template-columns 0.5s ease",
           }}
         >
-          <Box style={{ background: "red" }}>
-            <Button onClick={() => setFullMenu((prv) => !prv)}>show</Button>
+          <Box>
+            <Flex direction="column" gap="3">
+              {sidebar.map((menu) => (
+                <Box width="100%">
+                  <Button style={{ width: '100%', background: 'transparent', color: "#030229", fontSize: '16px' , justifyContent: 'start' }} >{menu.title}</Button>
+                </Box>
+              ))}
+              
+            </Flex>
+            {/* <Button onClick={() => setFullMenu((prv) => !prv)}>show</Button> */}
+            
           </Box>
 
           <Box
