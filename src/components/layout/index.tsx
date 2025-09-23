@@ -1,10 +1,13 @@
 import { Box, Button, Container, Flex, Grid, Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import { useState } from "react";
-import { Outlet } from "react-router";
+import { Outlet, useLocation, useNavigate } from "react-router";
 import { sidebar } from "./../../../public/statics/index";
+
 export default function Layout() {
   const [fullMenu, setFullMenu] = useState<boolean>(true);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <Theme accentColor="jade" grayColor="slate" radius="large" scaling="95%">
@@ -23,23 +26,40 @@ export default function Layout() {
             transition: "grid-template-columns 0.5s ease",
           }}
         >
+          {/* Sidebar */}
           <Box>
             <Flex direction="column" gap="3">
-              {sidebar.map((menu) => (
-                <Box width="100%">
-                  <Button style={{ width: '100%', background: 'transparent', color: "#030229", fontSize: '16px' , justifyContent: 'start' }} >{menu.title}</Button>
-                </Box>
-              ))}
-              
+              {sidebar.map((menu) => {
+                const isActive = location.pathname === menu.href;
+                return (
+                  <Box key={menu.href} width="100%">
+                    <Button
+                      role="link"
+                      onClick={() => navigate(menu.href)}
+                      style={{
+                        cursor: 'pointer',
+                        width: "100%",
+                        justifyContent: "start",
+                        padding: "10px",
+                        fontSize: "16px",
+                        background: "transparent",
+                        color: isActive ? "#605BFF" : "#030229" ,
+                        fontWeight: isActive ? "bold" : "normal",
+                        borderRadius: '0'
+                      }}
+                    >
+                      {menu.title}
+                    </Button>
+                  </Box>
+                );
+              })}
             </Flex>
-            {/* <Button onClick={() => setFullMenu((prv) => !prv)}>show</Button> */}
-            
           </Box>
 
+          {/* Content */}
           <Box
             style={{
               gridColumn: "2 / -1",
-              background: "",
               transition: "all 0.5s ease",
             }}
           >
