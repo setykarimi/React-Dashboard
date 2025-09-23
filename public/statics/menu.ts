@@ -1,10 +1,10 @@
 export const sidebar = [
-    { title: "Dashboard", icon : "" },
-    { title: "Analytics", icon : "" },
-    { title: "Invoice", icon : "" },
-    { title: "Schedule", icon : "" },
-    { title: "Calendar", icon : "" },
-    { title: "Messages", icon : "" },
-    { title: "Notification", icon : "" },
-    { title: "Settings", icon : "" }
+    { title: "Dashboard", icon : "", href: "/" },
+    { title: "Analytics", icon : "", href: "/analytics" },
+    { title: "Invoice", icon : "", href: "" },
+    { title: "Schedule", icon : "", href: "" },
+    { title: "Calendar", icon : "", href: "" },
+    { title: "Messages", icon : "", href: "" },
+    { title: "Notification", icon : "", href: "" },
+    { title: "Settings", icon : "", href: "" }
 ]
