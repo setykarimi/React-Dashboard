@@ -1,8 +1,9 @@
-import { Box, Button, Container, Flex, Grid, Theme } from "@radix-ui/themes";
+import { Box, Button, Container, Flex, Grid, Text, Theme } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import { useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router";
 import { sidebar } from "./../../../public/statics/index";
+import logo from '../../../public/assets/logo.svg'
 
 export default function Layout() {
   const [fullMenu, setFullMenu] = useState<boolean>(true);
@@ -29,6 +30,7 @@ export default function Layout() {
           {/* Sidebar */}
           <Box>
             <Flex direction="column" gap="3">
+              <Flex align="center" className="mx-auto gap-2 my-10"><img src={logo} alt="logo" className="w-10"/> <Text className="font-medium text-lg"> Base</Text></Flex>
               {sidebar.map((menu) => {
                 const isActive = location.pathname === menu.href;
                 return (
@@ -53,6 +55,8 @@ export default function Layout() {
                   </Box>
                 );
               })}
+
+              
             </Flex>
           </Box>
 
