@@ -1,1 +1,65 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Nunito-light";
+  src: url("/public/fonts/Nunito-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/public/fonts/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/public/fonts/Nunito-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/public/fonts/Nunito-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito-extra-bold";
+  src: url("/public/fonts/Nunito-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("/public/fonts/Nunito-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+
+html,
+body {
+  font-family: "Nunito" ;
+  background: #F9F9F9;
+  color: #1F1C14
+  
+}
+
+
+.font-extrabold{
+  font-weight: 800 !important;
+}
+
+.font-bold{
+  font-weight: 700 !important;
+}
+
+.font-medium{
+  font-weight: 500 !important;
+}
+
+.font-light{
+  font-weight: 300 !important;
+}
